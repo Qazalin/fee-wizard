@@ -1,10 +1,11 @@
-export const WizardIcon = () => (
+import { PropsWithClassname } from "@wiz/types";
+
+export const WizardIcon: React.FC<PropsWithClassname<{}>> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="1080"
-    height="1080"
     version="1"
     viewBox="0 0 810 810"
+    className={className}
   >
     <defs>
       <clipPath id="id1">

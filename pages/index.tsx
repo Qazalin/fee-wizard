@@ -1,9 +1,13 @@
+import { Hero } from "@wiz/components/Hero";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+import { Layout } from "../components/Layout";
 
 const Home: NextPage = () => {
-  return <div />;
+  return (
+    <Layout>
+      <Hero />
+    </Layout>
+  );
 };
 
 export default Home;
