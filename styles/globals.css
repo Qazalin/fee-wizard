@@ -29,3 +29,38 @@
       hsl(0deg 11% 58%) 100%
     );
 }
+
+
+.box:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-23deg, #527B83 0%, #A0898A 140% );
+    transform: translate3d(8px, 25px, 0) scale(0.97);
+    filter: blur(34px);
+    opacity: var(0.65);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+

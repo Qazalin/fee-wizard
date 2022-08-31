@@ -6,14 +6,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/inconsolata": "^4.5.7",
+    "@fontsource/open-sans": "^4.5.11",
+    "@fontsource/poppins": "^4.5.9",
+    "highlight.js": "^11.6.0",
     "next": "latest",
     "next-themes": "^0.2.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "@fontsource/inconsolata": "^4.5.7",
-    "@fontsource/open-sans": "^4.5.11",
-    "@fontsource/poppins": "^4.5.9"
-
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
