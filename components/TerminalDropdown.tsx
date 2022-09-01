@@ -1,6 +1,12 @@
 import { Menu, Transition } from "@headlessui/react";
 import { ChainInfoType, PropsWithClassname } from "@wiz/types";
-import { Fragment, JSXElementConstructor, useState } from "react";
+import {
+  Dispatch,
+  Fragment,
+  JSXElementConstructor,
+  SetStateAction,
+  useState,
+} from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Polygon } from "./icons";
 
@@ -23,13 +29,16 @@ const chains: ChainInfoType[] = [
     Icon: Polygon,
   },
 ];
-export const TerminalDropdown = () => {
-  const [selectedChain, setSelectedChain] = useState<ChainInfoType>();
+
+export const TerminalDropdown: React.FC<{
+  setSelected: Dispatch<SetStateAction<ChainInfoType | undefined>>;
+  selected?: ChainInfoType;
+}> = ({ setSelected, selected }) => {
   return (
     <Menu as="div" className="self-end">
       <div>
         <Menu.Button className="bg-zinc-800 p-2 rounded-md capitalize flex w-36 items-center justify-center">
-          {selectedChain ? selectedChain.chain : "Select Chain"}
+          {selected ? selected.chain : "Select Chain"}
           <IoMdArrowDropdown className="my-auto ml-1 text-xl" />
         </Menu.Button>
       </div>
@@ -52,7 +61,7 @@ export const TerminalDropdown = () => {
                       ? "bg-sky-500 bg-opacity-20 text-white"
                       : "text-zinc-300"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm capitalize`}
-                  onClick={() => setSelectedChain(c)}
+                  onClick={() => setSelected(c)}
                 >
                   <c.Icon className="w-3 md:w-4 lg:w-5 fill-zinc-300 mr-2" />
                   {c.chain}

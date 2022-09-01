@@ -1,4 +1,4 @@
-import { Code } from "@wiz/components/Code";
+import { Footer } from "@wiz/components/Footer";
 import { Hero } from "@wiz/components/Hero";
 import { Terminal } from "@wiz/components/Terminal";
 import type { NextPage } from "next";
@@ -9,6 +9,7 @@ const Home: NextPage = () => {
     <Layout>
       <Hero />
       <Terminal />
+      <Footer />
     </Layout>
   );
 };
