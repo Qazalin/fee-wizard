@@ -7,10 +7,6 @@ import useSWR from "swr";
 import { Layout } from "../components/Layout";
 
 const Home: NextPage = () => {
-  const { data, error, loading } = useGasOracleForChain("bsc");
-  if (data) {
-    console.log(data);
-  }
   return (
     <Layout>
       <Hero />

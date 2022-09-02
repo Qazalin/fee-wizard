@@ -6,22 +6,26 @@ export interface GasTrackerGeneralRes {
 }
 
 // When the status is 1, the result is an array of GasTrackerRes
-export interface GasOracleResponse extends GasTrackerGeneralRes {
-  result: GasOracleRes;
+export interface GasOracleResponse<R> extends GasTrackerGeneralRes {
+  result: R;
 }
 
 export interface GasEstimateResponse extends GasTrackerGeneralRes {
   result: string;
 }
 
-export type GasOracleRes = {
+export type NonEthGasOracleRes = {
   LastBlock: string;
   SafeGasPrice: string;
   ProposeGasPrice: string;
   FastGasPrice: string;
+  UsdPrice?: string; // ETH doesn't have it
+};
+
+export interface EthGasOracleRes extends NonEthGasOracleRes {
   suggestBaseFee: string;
   gasUsedRatio: string;
-};
+}
 
 export interface GasTrackerPararms extends Record<string, string> {
   module: "gastracker";
@@ -31,9 +35,4 @@ export interface GasTrackerPararms extends Record<string, string> {
 
 export interface EtherscanGasEtimateParams extends GasTrackerPararms {
   gasPrice: string;
-}
-
-// TODO
-export interface ExchangeRateRes {
-  USD: number;
 }

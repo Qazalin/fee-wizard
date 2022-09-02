@@ -8,8 +8,8 @@ import { getGasOracleUrl, getEnv } from "./utils";
  * @param chain The chain to fetch the gas oracle for (ethereum, polygon, bsc, fantom)
  * @returns The gas oracle data, error and loading states
  */
-export function useGasOracleForChain(chain: SupportedChains): {
-  data?: GasOracleResponse;
+export function useGasOracleForChain<T>(chain: SupportedChains): {
+  data?: GasOracleResponse<T>;
   error: unknown;
   loading: boolean;
 } {
@@ -27,7 +27,7 @@ export function useGasOracleForChain(chain: SupportedChains): {
     apiKey: env,
   };
 
-  const { data, error, isValidating } = useSWR<GasOracleResponse>(
+  const { data, error, isValidating } = useSWR<GasOracleResponse<T>>(
     `${url}?${new URLSearchParams(params).toString()}`,
     blockscanFetcher
   );
