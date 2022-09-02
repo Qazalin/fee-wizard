@@ -1,7 +1,7 @@
 import { WizardIcon } from "./icons/WizardIcon";
 
 export const Navbar = () => {
-  const navbarOptions = ["Home", "Docs", "Live"];
+  const navbarOptions = ["API", "Live"];
   return (
     <nav className="w-full h-16 xl:h-24 ">
       <div className="max-w-screen-xl mx-auto h-full flex items-center justify-between">

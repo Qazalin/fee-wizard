@@ -7,3 +7,5 @@ export type ChainInfoType = {
   chain: string;
   Icon: JSXElementConstructor<PropsWithClassname<{}>>;
 };
+
+export type SupportedChains = "ethereum" | "polygon" | "bsc" | "fantom";
