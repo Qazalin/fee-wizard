@@ -39,6 +39,7 @@ export const ETH: GasOracleResponse<EthGasOracleRes> = {
     suggestBaseFee: "8.098270933",
     gasUsedRatio:
       "0.443006659893007,0.999560421941758,0.375518650043251,0.259143314126479,0.541957867938603",
+    UsdPrice: "2100",
   },
 };
 

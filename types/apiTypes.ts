@@ -19,7 +19,7 @@ export type NonEthGasOracleRes = {
   SafeGasPrice: string;
   ProposeGasPrice: string;
   FastGasPrice: string;
-  UsdPrice?: string; // ETH doesn't have it
+  UsdPrice: string; // ETH doesn't have it
 };
 
 export interface EthGasOracleRes extends NonEthGasOracleRes {

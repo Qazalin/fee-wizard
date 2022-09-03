@@ -4,7 +4,7 @@ import { Layout } from "@wiz/components/Layout";
 const Live = () => {
   return (
     <Layout>
-      <DashboardLayout></DashboardLayout>
+      <DashboardLayout />
     </Layout>
   );
 };
