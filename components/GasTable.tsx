@@ -5,12 +5,13 @@ import {
   GasOracleData,
   EthGasOracleRes,
 } from "@wiz/types";
+
 export const GasTable: React.FC<{
   data: GasOracleData;
 }> = ({ data }) => {
-  type TableDataType =
-    | NonEthGasOracleRes
-    | (EthGasOracleRes & { chain: SupportedChains });
+  type TableDataType = (NonEthGasOracleRes | EthGasOracleRes) & {
+    chain: SupportedChains;
+  };
   const tableData: TableDataType[] = [
     { chain: "bsc", ...data.bsc.result },
     { chain: "ethereum", ...data.ethereum.result },

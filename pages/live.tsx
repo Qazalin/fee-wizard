@@ -10,9 +10,9 @@ const Live = () => {
   const { data: bscGasOracle } = useGasOracleForChain("bsc");
   const { data: ftmGasOracle } = useGasOracleForChain("fantom");
   const { data: polyGasOracle } = useGasOracleForChain("polygon");
+  const rate = useEthExchangeRate()?.toString();
 
   if (ethGasOracle && bscGasOracle && ftmGasOracle && polyGasOracle) {
-    const rate = useEthExchangeRate()?.toString();
     if (rate) {
       ethGasOracle.result.UsdPrice = rate;
       const gasOracleData: GasOracleData = {
@@ -33,3 +33,15 @@ const Live = () => {
 };
 
 export default Live;
+
+/* 
+ *
+ *
+      return (
+        <Layout>
+          <DashboardLayout data={gasOracleData} />
+        </Layout>
+      );
+
+
+*/

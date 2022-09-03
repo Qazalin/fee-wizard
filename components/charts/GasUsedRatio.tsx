@@ -3,21 +3,22 @@ import { ChartData, GasOracleData } from "@wiz/types";
 import { GradientBarChart } from "./BarChart";
 
 export const GasUsedRatio: React.FC<{ data: GasOracleData }> = ({ data }) => {
-  const ratioData: ChartData = [
-    {
-      x: "ETH",
-      y: average(
-        data.ethereum.result.gasUsedRatio.split(",").map((i) => parseFloat(i))
-      ),
-    },
-    {
-      x: "MATIC",
-      y: average(
-        data.polygon.result.gasUsedRatio.split(",").map((i) => parseFloat(i))
-      ),
-    },
-  ];
-  console.log(ratioData);
+  const ethRatio = data.ethereum.result.gasUsedRatio;
+  const maticRatio = data.polygon.result.gasUsedRatio;
+  let ratioData: ChartData = [];
+  if (ethRatio && maticRatio) {
+    ratioData = [
+      {
+        x: "ETH",
+        y: average(ethRatio.split(",").map((i) => parseFloat(i))),
+      },
+      {
+        x: "MATIC",
+        y: average(maticRatio.split(",").map((i) => parseFloat(i))),
+      },
+    ];
+  }
+
   return (
     <>
       <h2 className="capitalize h-10 w-full text-xl ml-5 mt-1">

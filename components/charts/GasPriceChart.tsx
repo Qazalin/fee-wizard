@@ -1,8 +1,6 @@
 import { getGasPriceChartData } from "@wiz/lib/data";
-import { ETH, POLY, BSC, FTM } from "@wiz/lib/fakeData";
 import { GradientBarChart } from "./BarChart";
 import {
-  ChainInfoType,
   ChartData,
   GasOracleResponse,
   NonEthGasOracleRes,
