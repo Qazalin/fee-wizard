@@ -5,6 +5,6 @@ export const Layout: React.FC<PropsWithChildren<{}>> = ({ children }) => (
     <div className="transition-all duration-500 transform absolute top-0 w-full z-30 translate-y-0 px-2 h-16">
       <Navbar />
     </div>
-    <div className="w-full h-[calc(100vh-4rem)] mt-16">{children}</div>
+    <div className="w-full h-full mt-16">{children}</div>
   </div>
 );

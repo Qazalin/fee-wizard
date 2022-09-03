@@ -9,7 +9,7 @@ export const GradientBarChart: React.FC<{
   layout?: LayoutType;
 }> = ({ data, color, id, layout = "horizontal" }) => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer height="90%" className="absolute bottom-0">
       <BarChart data={data} layout={layout}>
         <defs>
           <linearGradient

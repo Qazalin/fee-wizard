@@ -9,22 +9,22 @@ export const GasTable: React.FC<{
     return { ...d, chain: chains[i] };
   });
   return (
-    <table className="w-full h-full border-separate border-spacing-0">
+    <table className="w-full h-full overflow-auto">
       <thead className="bg-zinc-800">
         <tr>
-          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400">
+          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400 mx-2">
             chain
           </th>
-          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400">
+          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400 mx-2">
             safe
           </th>
-          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400">
+          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400 mx-2">
             propose
           </th>
-          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400">
+          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400 mx-2">
             fast
           </th>
-          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400">
+          <th className="sticky top-0 z-10 border-b border-zinc-400 capitalize text-zinc-400 mx-2">
             token price
           </th>
         </tr>
