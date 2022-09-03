@@ -1,16 +1,11 @@
 import { getGasPriceChartData } from "@wiz/lib/data";
 import { GradientBarChart } from "./BarChart";
-import {
-  ChartData,
-  GasOracleResponse,
-  NonEthGasOracleRes,
-  SupportedChains,
-} from "@wiz/types";
+import { ChartData, GasOracleData, SupportedChains } from "@wiz/types";
 import { useEffect, useState } from "react";
 import { ChainsDropdown } from "../TerminalDropdown";
 
 export const GasPriceChart: React.FC<{
-  gasOracleData: Record<SupportedChains, GasOracleResponse<NonEthGasOracleRes>>;
+  gasOracleData: GasOracleData;
 }> = ({ gasOracleData }) => {
   const [selectedChain, setSelectedChain] =
     useState<SupportedChains>("ethereum");

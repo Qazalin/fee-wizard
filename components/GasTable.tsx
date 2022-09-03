@@ -1,15 +1,10 @@
 import { roundToDecimals } from "@wiz/lib/math";
-import {
-  SupportedChains,
-  NonEthGasOracleRes,
-  GasOracleData,
-  EthGasOracleRes,
-} from "@wiz/types";
+import { SupportedChains, GasOracleData, GasOracleResult } from "@wiz/types";
 
 export const GasTable: React.FC<{
   data: GasOracleData;
 }> = ({ data }) => {
-  type TableDataType = (NonEthGasOracleRes | EthGasOracleRes) & {
+  type TableDataType = GasOracleResult & {
     chain: SupportedChains;
   };
   const tableData: TableDataType[] = [

@@ -1,9 +1,6 @@
-import { ChartData, GasOracleResponse, NonEthGasOracleRes } from "types";
-import { ETH, POLY, BSC, FTM } from "lib/fakeData";
+import { ChartData, GasOracleResponse } from "types";
 
-export function getGasPriceChartData(
-  data: GasOracleResponse<NonEthGasOracleRes>
-): ChartData {
+export function getGasPriceChartData(data: GasOracleResponse): ChartData {
   return [
     {
       x: "Safe",

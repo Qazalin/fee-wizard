@@ -2,8 +2,6 @@ import useSWR from "swr";
 import {
   GasOracleResponse,
   GasTrackerGeneralRes,
-  EthGasOracleRes,
-  NonEthGasOracleRes,
   GasTrackerPararms,
   SupportedChains,
 } from "@wiz/types";
@@ -15,7 +13,7 @@ import { getGasOracleUrl, getEnv } from "./utils";
  * @returns The gas oracle data, error and loading states
  */
 export function useGasOracleForChain(chain: SupportedChains): {
-  data?: GasOracleResponse<EthGasOracleRes | NonEthGasOracleRes>;
+  data?: GasOracleResponse;
   error: unknown;
   loading: boolean;
 } {
@@ -33,7 +31,7 @@ export function useGasOracleForChain(chain: SupportedChains): {
     apiKey: env,
   };
 
-  const { data, error, isValidating } = useSWR<GasOracleResponse<T>>(
+  const { data, error, isValidating } = useSWR<GasOracleResponse>(
     `${url}?${new URLSearchParams(params).toString()}`,
     blockscanFetcher
   );
