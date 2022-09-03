@@ -12,7 +12,13 @@ export const GradientBarChart: React.FC<{
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} layout={layout}>
         <defs>
-          <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+          <linearGradient
+            id={id}
+            x1={layout === "horizontal" ? "0" : "1"}
+            y1="0"
+            x2="0"
+            y2={layout === "horizontal" ? "1" : "0"}
+          >
             <stop offset="10%" stopColor={color} stopOpacity={0.8} />
             <stop offset="90%" stopColor="#3f3f46" stopOpacity={0.5} />
           </linearGradient>
