@@ -1,11 +1,12 @@
+import { SUPPORTED_CHAINS } from "@wiz/lib/constants";
 import { numberFormatter } from "@wiz/lib/math";
-import { SupportedChains } from "types";
+import { GasOracleData } from "types";
 import { Blockchain } from "./icons/Blockchain";
 
 export const BlockNumbers: React.FC<{
-  blockNums: string[];
-  chains: SupportedChains[];
-}> = ({ blockNums, chains }) => {
+  data: GasOracleData;
+}> = ({ data }) => {
+  const blockNums = SUPPORTED_CHAINS.map((c) => data[c].result.LastBlock);
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full h-full gap-3 p-5">
       {blockNums.map((b, i) => (
@@ -16,7 +17,7 @@ export const BlockNumbers: React.FC<{
           <Blockchain className="w-12 h-12 mx-auto" />
           <div className="flex lg:flex-col space-x-2">
             <p>{numberFormatter(parseInt(b))}</p>
-            <p className="capitalize">{chains[i]}</p>
+            <p className="capitalize">{SUPPORTED_CHAINS[i]}</p>
           </div>
         </div>
       ))}

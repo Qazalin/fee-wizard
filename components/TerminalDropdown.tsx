@@ -1,16 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
-import { ChainInfoType, PropsWithClassname, SupportedChains } from "@wiz/types";
-import {
-  Dispatch,
-  Fragment,
-  JSXElementConstructor,
-  SetStateAction,
-  useState,
-} from "react";
+import { SupportedChains } from "@wiz/types";
+import { Dispatch, Fragment, SetStateAction } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Polygon } from "./icons";
-
-const chains: SupportedChains[] = ["ethereum", "bsc", "polygon", "fantom"];
+import { SUPPORTED_CHAINS } from "lib/constants";
 
 export const ChainsDropdown: React.FC<{
   setSelected: Dispatch<SetStateAction<SupportedChains>>;
@@ -34,24 +26,22 @@ export const ChainsDropdown: React.FC<{
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="bg-zinc-800 mt-1 absolute z-30 rounded-md w-36">
-          {chains
-            .filter((c) => c !== selected)
-            .map((c, i) => (
-              <Menu.Item key={`chain-${i}`}>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active
-                        ? "bg-[#818cf8] bg-opacity-20 text-white"
-                        : "text-zinc-300"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm capitalize text-center justify-center`}
-                    onClick={() => setSelected(c)}
-                  >
-                    {c}
-                  </button>
-                )}
-              </Menu.Item>
-            ))}
+          {SUPPORTED_CHAINS.filter((c) => c !== selected).map((c, i) => (
+            <Menu.Item key={`chain-${i}`}>
+              {({ active }) => (
+                <button
+                  className={`${
+                    active
+                      ? "bg-[#818cf8] bg-opacity-20 text-white"
+                      : "text-zinc-300"
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm capitalize text-center justify-center`}
+                  onClick={() => setSelected(c)}
+                >
+                  {c}
+                </button>
+              )}
+            </Menu.Item>
+          ))}
         </Menu.Items>
       </Transition>
     </Menu>

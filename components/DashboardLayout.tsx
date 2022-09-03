@@ -12,6 +12,7 @@ import { BlockNumbers } from "./Blocknumbers";
 import { ETH, POLY, BSC, FTM } from "@wiz/lib/fakeData";
 import { GroupedLineChart } from "./charts/LineChart";
 import { GasPriceChart } from "./charts/GasPriceChart";
+import { GasUsedRatio } from "./charts/GasUsedRatio";
 
 export const DashboardLayout: React.FC<{
   data: GasOracleData;
@@ -36,30 +37,12 @@ export const DashboardLayout: React.FC<{
         <GasTable data={data} />
       </div>
       <div className="col-span-1 bg-zinc-900 w-full h-full  relative rounded-md text-zinc-300">
-        <h2 className="capitalize h-10 w-full text-xl ml-5 mt-1">
-          gas used ratio
-        </h2>
-        <GradientBarChart
-          data={ratioData}
-          color="#22d3ee"
-          id="gas-ratio"
-          layout="vertical"
-        />
+        <GasUsedRatio data={data} />
       </div>
       <div className="col-span-1 bg-zinc-900">
-        <BlockNumbers
-          blockNums={[
-            ETH.result.LastBlock,
-            POLY.result.LastBlock,
-            BSC.result.LastBlock,
-            FTM.result.LastBlock,
-          ]}
-          chains={["ethereum", "polygon", "bsc", "fantom"]}
-        />
+        <BlockNumbers data={data} />
       </div>
-      <div className="col-span-1 bg-zinc-900 relative">
-        <GroupedLineChart />
-      </div>
+      <div className="col-span-1 bg-zinc-900 relative"></div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
-export const SUPPORTED_CHAINS = [
+import { SupportedChains } from "@wiz/types";
+
+export const SUPPORTED_CHAINS: SupportedChains[] = [
   "ethereum",
   "polygon",
-  "BSC",
+  "bsc",
   "fantom",
-  "solana",
 ];
