@@ -1,6 +1,12 @@
 import useSWR from "swr";
-import { GasOracleResponse, GasTrackerGeneralRes } from "@wiz/types";
-import { GasTrackerPararms, SupportedChains } from "@wiz/types";
+import {
+  GasOracleResponse,
+  GasTrackerGeneralRes,
+  EthGasOracleRes,
+  NonEthGasOracleRes,
+  GasTrackerPararms,
+  SupportedChains,
+} from "@wiz/types";
 import { getGasOracleUrl, getEnv } from "./utils";
 
 /**
@@ -8,8 +14,8 @@ import { getGasOracleUrl, getEnv } from "./utils";
  * @param chain The chain to fetch the gas oracle for (ethereum, polygon, bsc, fantom)
  * @returns The gas oracle data, error and loading states
  */
-export function useGasOracleForChain<T>(chain: SupportedChains): {
-  data?: GasOracleResponse<T>;
+export function useGasOracleForChain(chain: SupportedChains): {
+  data?: GasOracleResponse<EthGasOracleRes | NonEthGasOracleRes>;
   error: unknown;
   loading: boolean;
 } {

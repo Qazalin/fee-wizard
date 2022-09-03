@@ -1,7 +1,7 @@
 import { ChainInfoType } from "@wiz/types";
 import { PropsWithChildren, ReactElement, useState } from "react";
 import { Code } from "./Code";
-import { TerminalDropdown } from "./TerminalDropdown";
+import { ChainsDropdown } from "./TerminalDropdown";
 
 export const Terminal = () => {
   const [code, setCode] = useState("hi");
@@ -46,6 +46,6 @@ const Header = () => (
 );
 
 Terminal.Header = Header;
-Terminal.Dropdown = TerminalDropdown;
+Terminal.Dropdown = ChainsDropdown;
 Terminal.Wrapper = Wrapper;
 Terminal.Body = Body;

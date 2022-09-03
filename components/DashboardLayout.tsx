@@ -1,32 +1,21 @@
-import { PropsWithChildren } from "react";
-import { ChartData } from "@wiz/types";
-import { ETH, POLY, BSC, FTM } from "@wiz/lib/fakeData";
+import {
+  ChartData,
+  GasOracleData,
+  GasOracleResponse,
+  NonEthGasOracleRes,
+  SupportedChains,
+} from "@wiz/types";
 import { GradientBarChart } from "./charts/BarChart";
 import { GasTable } from "./GasTable";
 import { average } from "@wiz/lib/math";
-import { parse } from "path";
 import { BlockNumbers } from "./Blocknumbers";
+import { ETH, POLY, BSC, FTM } from "@wiz/lib/fakeData";
+import { GroupedLineChart } from "./charts/LineChart";
+import { GasPriceChart } from "./charts/GasPriceChart";
 
-export const DashboardLayout: React.FC<{}> = () => {
-  const barChartData: ChartData = [
-    {
-      x: "ETH",
-      y: parseInt(ETH.result.SafeGasPrice),
-    },
-    {
-      x: "POLY",
-      y: parseInt(POLY.result.SafeGasPrice),
-    },
-    {
-      x: "BSC",
-      y: parseInt(BSC.result.SafeGasPrice),
-    },
-    {
-      x: "FTM",
-      y: parseInt(FTM.result.SafeGasPrice),
-    },
-  ];
-
+export const DashboardLayout: React.FC<{
+  data: GasOracleData;
+}> = ({ data }) => {
   const ratioData: ChartData = [
     {
       x: "ETH",
@@ -41,13 +30,7 @@ export const DashboardLayout: React.FC<{}> = () => {
   return (
     <div className="h-[250vh] lg:h-full w-full grid grid-cols-1 lg:grid-cols-3 gap-2 p-5">
       <div className="col-span-1 bg-zinc-900 w-full h-full  relative rounded-md text-zinc-300">
-        <h2 className="capitalize h-10 w-full text-xl ml-5 mt-1">Gas price</h2>
-        <GradientBarChart
-          data={barChartData}
-          color="#818cf8"
-          id="gas-compre"
-          layout="horizontal"
-        />
+        <GasPriceChart gasOracleData={data} />
       </div>
       <div className="col-span-1 lg:col-span-2 bg-zinc-900 overflow-x-auto">
         <GasTable
@@ -76,6 +59,9 @@ export const DashboardLayout: React.FC<{}> = () => {
           ]}
           chains={["ethereum", "polygon", "bsc", "fantom"]}
         />
+      </div>
+      <div className="col-span-1 bg-zinc-900 relative">
+        <GroupedLineChart />
       </div>
     </div>
   );

@@ -34,17 +34,17 @@ export const GasTable: React.FC<{
           <tr key={`gas-table-${i}`}>
             <td className="border-b-2 border-zinc-500">{d.chain}</td>
             <td className="border-b-2 border-zinc-500">
-              {roundToDecimals(parseInt(d.SafeGasPrice))}
+              {roundToDecimals(parseFloat(d.SafeGasPrice))}
             </td>
             <td className="border-b-2 border-zinc-500">
               {" "}
-              {roundToDecimals(parseInt(d.ProposeGasPrice))}
+              {roundToDecimals(parseFloat(d.ProposeGasPrice))}
             </td>
             <td className="border-b-2 border-zinc-500">
-              {roundToDecimals(parseInt(d.FastGasPrice))}
+              {roundToDecimals(parseFloat(d.FastGasPrice))}
             </td>
             <td className="border-b-2 border-zinc-500">
-              {roundToDecimals(parseInt(d.UsdPrice))}
+              {roundToDecimals(parseFloat(d.UsdPrice))}
             </td>
           </tr>
         ))}

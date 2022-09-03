@@ -1,31 +1,21 @@
-import { ChartData } from "types";
+import { ChartData, GasOracleResponse, NonEthGasOracleRes } from "types";
 import { ETH, POLY, BSC, FTM } from "lib/fakeData";
 
-export function getSafeUSDGasPrice(): ChartData {
+export function getGasPriceChartData(
+  data: GasOracleResponse<NonEthGasOracleRes>
+): ChartData {
   return [
     {
-      x: "ETH",
-      y:
-        (parseInt(ETH.result.SafeGasPrice) * parseInt(ETH.result.UsdPrice)) /
-        1e18,
+      x: "Safe",
+      y: parseInt(data.result.SafeGasPrice),
     },
     {
-      x: "POLY",
-      y:
-        (parseInt(POLY.result.SafeGasPrice) * parseInt(POLY.result.UsdPrice)) /
-        1e18,
+      x: "Fast",
+      y: parseInt(data.result.FastGasPrice),
     },
     {
-      x: "BSC",
-      y:
-        (parseInt(BSC.result.SafeGasPrice) * parseInt(BSC.result.UsdPrice)) /
-        1e18,
-    },
-    {
-      x: "FTM",
-      y:
-        (parseInt(FTM.result.SafeGasPrice) * parseInt(FTM.result.UsdPrice)) /
-        1e18,
+      x: "Propose",
+      y: parseInt(data.result.ProposeGasPrice),
     },
   ];
 }
