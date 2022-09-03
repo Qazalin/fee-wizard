@@ -3,7 +3,7 @@ import { WizardIcon } from "./icons/WizardIcon";
 export const Navbar = () => {
   const navbarOptions = ["API", "Live"];
   return (
-    <nav className="w-full h-16 xl:h-24 ">
+    <nav className="w-full h-full">
       <div className="max-w-screen-xl mx-auto h-full flex items-center justify-between">
         <a className="relative flex" href="/">
           <WizardIcon className="w-10 xl:w-12" />
