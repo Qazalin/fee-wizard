@@ -1,13 +1,23 @@
 import { roundToDecimals } from "@wiz/lib/math";
-import { SupportedChains, NonEthGasOracleRes } from "@wiz/types";
+import {
+  SupportedChains,
+  NonEthGasOracleRes,
+  GasOracleData,
+  EthGasOracleRes,
+} from "@wiz/types";
 export const GasTable: React.FC<{
-  data: NonEthGasOracleRes[];
-  chains: SupportedChains[];
-}> = ({ data, chains }) => {
-  type TableDataType = NonEthGasOracleRes & { chain: SupportedChains };
-  const tableData: TableDataType[] = data.map((d, i) => {
-    return { ...d, chain: chains[i] };
-  });
+  data: GasOracleData;
+}> = ({ data }) => {
+  type TableDataType =
+    | NonEthGasOracleRes
+    | (EthGasOracleRes & { chain: SupportedChains });
+  const tableData: TableDataType[] = [
+    { chain: "bsc", ...data.bsc.result },
+    { chain: "ethereum", ...data.ethereum.result },
+    { chain: "polygon", ...data.polygon.result },
+    { chain: "fantom", ...data.fantom.result },
+  ];
+
   return (
     <table className="w-full h-full overflow-auto">
       <thead className="bg-zinc-800">

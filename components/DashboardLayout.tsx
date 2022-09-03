@@ -33,10 +33,7 @@ export const DashboardLayout: React.FC<{
         <GasPriceChart gasOracleData={data} />
       </div>
       <div className="col-span-1 lg:col-span-2 bg-zinc-900 overflow-x-auto">
-        <GasTable
-          data={[ETH.result, POLY.result, BSC.result, FTM.result]}
-          chains={["ethereum", "polygon", "bsc", "fantom"]}
-        />
+        <GasTable data={data} />
       </div>
       <div className="col-span-1 bg-zinc-900 w-full h-full  relative rounded-md text-zinc-300">
         <h2 className="capitalize h-10 w-full text-xl ml-5 mt-1">
