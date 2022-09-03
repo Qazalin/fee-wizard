@@ -9,3 +9,8 @@ export type ChainInfoType = {
 };
 
 export type SupportedChains = "ethereum" | "polygon" | "bsc" | "fantom";
+
+export type ChartData = {
+  x: string;
+  y: number;
+}[];
