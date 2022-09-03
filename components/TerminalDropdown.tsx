@@ -11,9 +11,13 @@ export const ChainsDropdown: React.FC<{
   return (
     <Menu as="div" className="self-end">
       <div>
-        <Menu.Button className="bg-zinc-800 p-2 rounded-md capitalize flex w-36 items-center justify-center">
-          {selected ? selected : "Select Chain"}
-          <IoMdArrowDropdown className="my-auto ml-1 text-xl" />
+        <Menu.Button className="bg-zinc-800 p-2 rounded-md capitalize flex flex-col relative lg:flex-row items-center justify-center  w-5 lg:w-24">
+          <div className="invisible lg:visible">
+            <p>{selected ? selected : "Select Chain"}</p>
+          </div>
+          <div className="absolute lg:relative">
+            <IoMdArrowDropdown className="w-fit h-fit mx-auto" />
+          </div>
         </Menu.Button>
       </div>
       <Transition
@@ -25,7 +29,7 @@ export const ChainsDropdown: React.FC<{
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="bg-zinc-800 mt-1 absolute z-30 rounded-md w-36">
+        <Menu.Items className="bg-zinc-800 mt-1 absolute right-0 z-30 rounded-md lg:w-24">
           {SUPPORTED_CHAINS.filter((c) => c !== selected).map((c, i) => (
             <Menu.Item key={`chain-${i}`}>
               {({ active }) => (
