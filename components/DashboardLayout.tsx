@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import { ChartData } from "@wiz/types";
 import { ETH, POLY, BSC, FTM } from "@wiz/lib/fakeData";
 import { GradientBarChart } from "./charts/BarChart";
+import { GasTable } from "./GasTable";
 
 export const DashboardLayout: React.FC<{}> = () => {
   const barChartData: ChartData = [
@@ -33,7 +34,12 @@ export const DashboardLayout: React.FC<{}> = () => {
           layout="horizontal"
         />
       </div>
-      <div className="col-span-1 lg:col-span-2 bg-zinc-900"></div>
+      <div className="col-span-1 lg:col-span-2 bg-zinc-900">
+        <GasTable
+          data={[ETH.result, POLY.result, BSC.result, FTM.result]}
+          chains={["ethereum", "polygon", "bsc", "fantom"]}
+        />
+      </div>
       <div className="col-span-1 bg-zinc-900"></div>
       <div className="col-span-1 bg-zinc-900" />
       <div className="col-span-1 bg-zinc-900" />
